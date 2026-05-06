@@ -17,7 +17,7 @@ public class DataThugGenerator {
 
     /**
      * Genera una lista de hampones con nombres, edad y dinero al azar entre $1000 y
-     * $5000000
+     * $50000000
      *
      * @param size la cantidad de hampones que queremos crear
      * @return una lista simple llena de hampones
@@ -26,7 +26,7 @@ public class DataThugGenerator {
         SimpleList<Thug> listT = new SimpleList<>();
         Random ran = new Random();
         double minMoney = 1000;
-        double maxMoney = 5000000;
+        double maxMoney = 50000000;
         int randomUtility = 0;
         double ranMoney;
 

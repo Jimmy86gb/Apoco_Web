@@ -16,7 +16,7 @@ public class DataPoliticianGenerator {
 
     /**
      * Genera una lista de politicos con nombres y dinero al azar entre $1000 y
-     * $5000000, usa tambien random para crear nombres al azar
+     * $50000000, usa tambien random para crear nombres al azar
      *
      * @param size la cantidad de politicos que queremos crear
      * @return una lista simple llena de politicos
@@ -25,7 +25,7 @@ public class DataPoliticianGenerator {
         SimpleList<Politician> listP = new SimpleList<>();
         Random ran = new Random();
         double minMoney = 1000;
-        double maxMoney = 5000000;
+        double maxMoney = 50000000;
         int randomUtility = 0;
         double ranMoney = 0;
         
