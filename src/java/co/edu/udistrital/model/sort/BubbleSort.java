@@ -27,11 +27,12 @@ public class BubbleSort<T> implements Sorter<T> {
         }
 
         boolean swapped;
+        Node<T> lastSorted = null;
         do {
             swapped = false;
             Node<T> current = list.getHead();
 
-            while (current != null && current.getNext() != null) {
+            while (current != null && current.getNext() != lastSorted) {
                 iterations++; // cuenta la iteracion de la comparacion
 
                 if (comparator.compare(current.getData(),
@@ -46,6 +47,7 @@ public class BubbleSort<T> implements Sorter<T> {
                 // avanza al siguiente par
                 current = current.getNext();
             }
+            lastSorted = current;
         } while (swapped);
 
         return iterations;
