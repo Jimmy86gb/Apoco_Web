@@ -12,6 +12,7 @@ import co.edu.udistrital.model.structures.SimpleList;
 public class ThugDTO {
 
     private final int[] iterations;
+    private final SimpleList<Thug> unorderedList;
     private final SimpleList<Thug> orderedList;
     private final int columns;
     private final int rows;
@@ -20,12 +21,14 @@ public class ThugDTO {
      * Contructor del objeto de transferencia de datos
      *
      * @param iterations iteraciones de cada algoritmo
+     * @param unorderedList lista desorganizada de hampones
      * @param orderedList lista organizada de hampones
      * @param columns columnas de la matriz
      * @param rows filas de la matriz
      */
-    public ThugDTO(int[] iterations, SimpleList<Thug> orderedList, int columns, int rows) {
+    public ThugDTO(int[] iterations, SimpleList<Thug> unorderedList, SimpleList<Thug> orderedList, int columns, int rows) {
         this.iterations = iterations;
+        this.unorderedList = unorderedList;
         this.orderedList = orderedList;
         this.columns = columns;
         this.rows = rows;
@@ -42,7 +45,7 @@ public class ThugDTO {
 
     /**
      * Getter de la lista ordenada de hampones
-     * 
+     *
      * @return la lista ordenada de hampones
      */
     public SimpleList<Thug> getOrderedList() {
@@ -51,7 +54,7 @@ public class ThugDTO {
 
     /**
      * Getter de las columnas
-     * 
+     *
      * @return el numero de columnas de la matriz
      */
     public int getColumns() {
@@ -60,11 +63,19 @@ public class ThugDTO {
 
     /**
      * Getter de las filas
-     * 
+     *
      * @return el numero de filas de la matriz
      */
     public int getRows() {
         return rows;
     }
 
+    /**
+     * Getter de la lista desordenada
+     *
+     * @return la lista desordenada
+     */
+    public SimpleList<Thug> getUnorderedList() {
+        return unorderedList;
+    }
 }

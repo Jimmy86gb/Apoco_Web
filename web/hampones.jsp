@@ -10,6 +10,7 @@
         iteraciones = new int[8];
     }
 
+    SimpleList<Thug> listaDesordenada = (SimpleList<Thug>) request.getAttribute("listaDesordenada");
     SimpleList<Thug> listaOrdenada = (SimpleList<Thug>) request.getAttribute("listaOrdenada");
     String currentRow = request.getAttribute("currentRow") != null
             ? request.getAttribute("currentRow").toString() : "5";
@@ -135,9 +136,42 @@
             <% } %>
         </div>
 
-        <% if (listaOrdenada != null) { %>
+        <% if (listaDesordenada != null) { %>
         <div id="miLista" class="seccion-matriz">
-            <h3 style="text-align:center; color: #333;">Auditorio de Hampones (Matriz <%= currentRow %>x<%= curretColumn %>)</h3>
+            <h3 style="text-align:center; color: #333;">Auditorio de Hampones Desordenado (Matriz <%= currentRow %>x<%= curretColumn %>)</h3>
+            <table class="tabla-matriz">
+                <tr>
+                    <%
+                        Node<Thug> actual = listaDesordenada.getHead();
+                        // Parsear el limite de columnas
+                        int colsLimite = Integer.parseInt(curretColumn);
+                        int contador = 0;
+
+                        while (actual != null) {
+                            Thug t = actual.getData();
+                    %>
+                    <td class="celda-hampon">
+                        <span class="h-nombre"><%= t.getName() %></span>
+                        <span class="h-edad">Edad: <%= t.getAge() %> años</span>
+                        <span class="h-dinero">💰 $<%= String.format("%,.2f", t.getStolenMoney()) %></span>
+                    </td>
+                    <%
+                            contador++;
+                            // Si se alcanza el límite de columnas y aún hay datos, se pasa a la siguiente fila
+                            if (contador % colsLimite == 0 && actual.getNext() != null) {
+                                out.print("</tr><tr>");
+                            }
+                            actual = actual.getNext();
+                        }
+                    %>
+                </tr>
+            </table>
+        </div>
+        <% }%>
+        
+        <% if (listaOrdenada != null) { %>
+        <div id="miLista2" class="seccion-matriz">
+            <h3 style="text-align:center; color: #333;">Auditorio de Hampones Ordenado (Matriz <%= currentRow %>x<%= curretColumn %>)</h3>
             <table class="tabla-matriz">
                 <tr>
                     <%

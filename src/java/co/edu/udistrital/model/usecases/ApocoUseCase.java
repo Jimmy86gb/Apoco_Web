@@ -68,7 +68,7 @@ public class ApocoUseCase {
         }
 
         // 6. Empaquetar y retornar resultados
-        return new ApocoDTO(iterations, finalSortedList, size);
+        return new ApocoDTO(iterations, listP, finalSortedList, size);
     }
 
     /**

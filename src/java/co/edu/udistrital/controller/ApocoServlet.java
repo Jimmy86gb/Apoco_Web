@@ -46,6 +46,7 @@ public class ApocoServlet extends HttpServlet {
 
         // 3. RETORNAR los resultados a la vista
         request.setAttribute("iteraciones", resultado.getIterations());
+        request.setAttribute("listaDesordenada", resultado.getUnorderedList());
         request.setAttribute("listaOrdenada", resultado.getOrderedList());
         request.setAttribute("currentSize", resultado.getUsedSize());
         request.setAttribute("currentAlgo", algorithmParam);

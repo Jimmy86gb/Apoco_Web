@@ -6,5 +6,6 @@ package co.edu.udistrital.model.enums;
  * @author Juan David Diaz Perez
  */
 public enum WomenEnumNames {
-    Sofia, Valentina, Isabella, Camila, Lucia, Mariana, Gabriela, Victoria, Martina, Ximena
+    Sofia, Valentina, Isabella, Camila, Lucia, Mariana, Gabriela, Victoria, 
+        Martina, Ximena
 }

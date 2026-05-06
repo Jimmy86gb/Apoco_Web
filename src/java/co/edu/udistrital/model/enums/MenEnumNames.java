@@ -6,5 +6,6 @@ package co.edu.udistrital.model.enums;
  * @author Juan David Diaz Perez
  */
 public enum MenEnumNames {
-    Santiago, Mateo, Sebastian, Matias, Nicolas, Alejandro, Samuel, Diego, Daniel, Thiago
+    Santiago, Mateo, Sebastian, Matias, Nicolas, Alejandro, Samuel, Diego, 
+        Daniel, Thiago
 }

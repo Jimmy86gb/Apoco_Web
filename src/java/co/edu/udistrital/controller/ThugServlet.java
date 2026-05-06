@@ -46,6 +46,7 @@ public class ThugServlet extends HttpServlet {
 
         // Retornar las coas a la vista
         request.setAttribute("iteraciones", resultado.getIterations());
+        request.setAttribute("listaDesordenada", resultado.getUnorderedList());
         request.setAttribute("listaOrdenada", resultado.getOrderedList());
         request.setAttribute("currentRow", resultado.getRows());
         request.setAttribute("currentColumn", resultado.getColumns());

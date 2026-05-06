@@ -80,7 +80,7 @@ public class ThugUserCase {
             finalSortedList = copy;
         }
         
-        return new ThugDTO(iterations, finalSortedList, colums, rows);
+        return new ThugDTO(iterations, listT, finalSortedList, colums, rows);
     }
     
     /**

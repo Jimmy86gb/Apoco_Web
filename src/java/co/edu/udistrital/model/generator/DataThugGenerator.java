@@ -37,11 +37,18 @@ public class DataThugGenerator {
 
         for (int i = 0; i < size; i++) {
 
-            randomUtility = ran.nextInt(1);
+            randomUtility = ran.nextInt(2);
 
-            String name = (randomUtility == 0) ? menNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Hampon No." + (i + 1) + ")" : womenNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Hampon No." + (i + 1) + ")";
+            String name = (randomUtility == 0) ? 
+                    menNames[ran.nextInt(menNames.length)] + " " + 
+                        lastNames[ran.nextInt(lastNames.length)] + " " + 
+                            "(Hampon No." + (i + 1) + ")" : 
+                                womenNames[ran.nextInt(womenNames.length)] + 
+                                    " " + lastNames[ran.nextInt(lastNames.length)] 
+                                            + " " +  "(Hampon No." + (i + 1) + ")";
             
-            ranMoney = Math.round((minMoney + (maxMoney - minMoney) * ran.nextDouble()) * 100) / 100;
+            ranMoney = Math.round((minMoney + (maxMoney - minMoney) * 
+                        ran.nextDouble()) * 100) / 100;
             randomUtility = ran.nextInt(52) + 18; // Maximo 70 para ser hampon
             
             listT.add(new Thug(name, randomUtility, ranMoney));

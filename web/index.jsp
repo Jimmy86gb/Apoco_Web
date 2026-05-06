@@ -10,6 +10,7 @@
         iteraciones = new int[8];
     }
 
+    SimpleList<Politician> listaDesordenada = (SimpleList<Politician>) request.getAttribute("listaDesordenada");
     SimpleList<Politician> listaOrdenada = (SimpleList<Politician>) request.getAttribute("listaOrdenada");
     String currentSize = request.getAttribute("currentSize") != null
             ? request.getAttribute("currentSize").toString() : "50";
@@ -129,9 +130,30 @@
             <% } %>
         </div>
 
+        <% if (listaDesordenada != null) { %>
+        <div id="miLista" class="seccion-lista">
+            <h3 style="text-align:center;">Lista de Políticos Desordenada</h3>
+            <table style="width: 100%;">
+                <tr><th>Nombre</th><th>Dinero a Robar</th></tr>
+                        <%
+                            Node<Politician> actual = listaDesordenada.getHead();
+                            while (actual != null) {
+                                Politician p = actual.getData();
+                        %>
+                <tr>
+                    <td><%= p.getName()%></td>
+                    <td>$ <%= String.format("%,.2f", p.getMoneyToSteal())%></td>
+                </tr>
+                <%
+                        actual = actual.getNext();
+                    }
+                %>
+            </table>
+        </div>
+        <% }%>
         <!-- Div oculto que tiene la lista final iterada -->
         <% if (listaOrdenada != null) { %>
-        <div id="miLista" class="seccion-lista">
+        <div id="miLista2" class="seccion-lista">
             <h3 style="text-align:center;">Lista de Políticos Ordenada</h3>
             <table style="width: 100%;">
                 <tr><th>Nombre</th><th>Dinero a Robar</th></tr>
